@@ -80,8 +80,7 @@ svg {
             width: $column-width;
             overflow: hidden;
 
-            .tooltip-content,
-            svg {
+            .tooltip-content {
                 display: none;
             }
         }

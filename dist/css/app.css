@@ -1112,8 +1112,7 @@ svg {
   .datatable tbody tr td {
     width: 50px;
     overflow: hidden; }
-    .datatable tbody tr td .tooltip-content,
-    .datatable tbody tr td svg {
+    .datatable tbody tr td .tooltip-content {
       display: none; }
   .dataTables_wrapper .datatable {
     opacity: 1;

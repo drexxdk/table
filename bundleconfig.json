@@ -1,0 +1,20 @@
+[
+  {
+    "outputFileName": "dist/js/app.js",
+    "inputFiles": [
+      "js/vendors/jquery.min.js",
+      "js/vendors/datatables/extensions/jszip.js",
+      "js/vendors/datatables/extensions/pdfmake.js",
+      "js/vendors/datatables/extensions/vfs_fonts.js",
+      "js/vendors/datatables/dataTables.js",
+      "js/vendors/datatables/extensions/buttons.js",
+      "js/vendors/datatables/extensions/buttons.colVis.js",
+      "js/vendors/datatables/extensions/buttons.html5.js",
+      "js/vendors/datatables/extensions/buttons.print.js",
+      "js/vendors/datatables/extensions/fixedColumns.js",
+      "js/vendors/datatables/extensions/fixedHeader.js",
+      "js/vendors/tooltipster.min.js",
+      "js/app.js"
+    ]
+  }
+]

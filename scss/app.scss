@@ -1,0 +1,219 @@
+﻿/*@import "reset";
+@import "fixed-table";*/
+@import "reset";
+
+@import "datatables/dataTables";
+@import "datatables/extensions/buttons";
+@import "datatables/extensions/fixedColumns";
+@import "datatables/extensions/fixedHeader";
+@import "tooltipster";
+
+body > svg {
+    display: none;
+}
+
+svg {
+    display: block;
+    pointer-events: none;
+}
+
+.tooltipster-base {
+    ul {
+        list-style-position: inside;
+    }
+}
+
+.dataTables_wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+    .DTFC_ScrollWrapper {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        height: 100% !important;
+    }
+
+    .dataTables_scroll {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        flex-grow: 1;
+    }
+
+    .dataTables_scrollHead {
+        flex-shrink: 0;
+    }
+}
+
+.datatable {
+    opacity: 0;
+    position: fixed;
+
+    $headline-length: 200px;
+    $column-width: 50px;
+    $column-height: 40px;
+    $padding: 10px;
+    $font-size: 18px;
+    font-family: sans-serif;
+
+    thead tr {
+        height: $headline-length;
+
+        th {
+            font-size: 0;
+        }
+    }
+
+    tbody tr {
+        th {
+            min-width: $headline-length;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 0;
+        }
+
+        td {
+            width: $column-width;
+            overflow: hidden;
+
+            .tooltip-content,
+            svg {
+                display: none;
+            }
+        }
+    }
+
+    .dataTables_wrapper & {
+        opacity: 1;
+        position: relative;
+
+        thead tr th {
+            position: relative;
+            overflow: hidden;
+
+            > span {
+                font-size: $font-size;
+                line-height: $column-width;
+                position: absolute;
+                left: 0;
+                bottom: -$column-width;
+                transform: rotate(270deg);
+                transform-origin: top left;
+                text-align: left;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: $headline-length;
+                padding: 0 $padding;
+                box-sizing: border-box;
+            }
+        }
+
+        tbody tr {
+            th {
+                font-size: $font-size;
+                width: $headline-length;
+                position: relative;
+                text-align: right;
+                line-height: $column-height;
+                padding: 0 $padding;
+                box-sizing: border-box;
+
+                > span {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    padding: 0 $padding;
+                }
+            }
+
+            &:hover td:not(.highlight),
+            &:not(:hover) td.highlight {
+                position: relative;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background-color: rgba(white, .5);
+                }
+            }
+
+            td {
+                position: relative;
+                padding: 0;
+
+                > .percentage {
+                    width: $column-width;
+                    display: block;
+                    overflow: hidden;
+                    position: relative;
+                    bottom: 0;
+                    text-align: center;
+                    font-size: 14px;
+                    height: $column-height / 2;
+                    margin-top: $column-height / 2;
+                    color: white;
+                    font-weight: bold;
+                }
+
+                .tooltip-content {
+                    display: none;
+                }
+
+                svg {
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    width: 12px;
+                    height: 12px;
+                }
+
+                &.positive {
+                    background-color: #00c000;
+
+                    svg {
+                        fill: #006000;
+                    }
+                }
+
+                &.negative {
+                    background-color: #c00000;
+
+                    svg {
+                        fill: #600000;
+                        transform: rotate(90deg);
+                    }
+                }
+
+                &.neutral {
+                    background-color: #808080;
+
+                    svg {
+                        fill: #404040;
+                    }
+                }
+
+                &.missing {
+                    background-color: #f69f00;
+
+                    svg {
+                        fill: #e9550b;
+                    }
+                }
+            }
+        }
+    }
+}

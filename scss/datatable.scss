@@ -1,0 +1,201 @@
+﻿
+
+$datatable-headline-length: 200px;
+$datatable-column-width: 50px;
+$datatable-column-height: 40px;
+$datatable-padding: 10px;
+$datatable-font-size: 18px;
+$datatable-min-rows: 5;
+
+.dataTables_wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+    .DTFC_ScrollWrapper {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        height: 100% !important;
+    }
+
+    .dataTables_scroll {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        flex-grow: 1;
+    }
+
+    .dataTables_scrollHead {
+        flex-shrink: 0;
+    }
+
+    .dataTables_scroll {
+        // doesn't account for horizontal scrollbar
+        min-height: $datatable-headline-length + ($datatable-column-height * $datatable-min-rows);
+    }
+}
+
+.datatable {
+    opacity: 0;
+    position: fixed;
+    font-family: sans-serif;
+
+    thead tr {
+        height: $datatable-headline-length;
+
+        th {
+            font-size: 0;
+        }
+    }
+
+    tbody tr {
+        th {
+            min-width: $datatable-headline-length;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 0;
+        }
+
+        td {
+            width: $datatable-column-width;
+            overflow: hidden;
+
+            .tooltip-content {
+                display: none;
+            }
+        }
+    }
+
+    .dataTables_wrapper & {
+        opacity: 1;
+        position: relative;
+
+        thead tr th {
+            position: relative;
+            overflow: hidden;
+
+            > span {
+                font-size: $datatable-font-size;
+                line-height: $datatable-column-width;
+                position: absolute;
+                left: 0;
+                bottom: -$datatable-column-width;
+                transform: rotate(270deg);
+                transform-origin: top left;
+                text-align: left;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: $datatable-headline-length;
+                padding: 0 $datatable-padding;
+                box-sizing: border-box;
+            }
+        }
+
+        tbody tr {
+            th {
+                font-size: $datatable-font-size;
+                width: $datatable-headline-length;
+                position: relative;
+                text-align: right;
+                line-height: $datatable-column-height;
+                padding: 0 $datatable-padding;
+                box-sizing: border-box;
+
+                > span {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    padding: 0 $datatable-padding;
+                }
+            }
+
+            &:hover td:not(.highlight),
+            &:not(:hover) td.highlight {
+                position: relative;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background-color: rgba(white, .5);
+                }
+            }
+
+            td {
+                position: relative;
+                padding: 0;
+
+                > .percentage {
+                    width: $datatable-column-width;
+                    display: block;
+                    overflow: hidden;
+                    position: relative;
+                    bottom: 0;
+                    text-align: center;
+                    font-size: 14px;
+                    height: $datatable-column-height / 2;
+                    margin-top: $datatable-column-height / 2;
+                    color: white;
+                    font-weight: bold;
+                }
+
+                .tooltip-content {
+                    display: none;
+                }
+
+                svg {
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    width: 12px;
+                    height: 12px;
+                }
+
+                &.positive {
+                    background-color: #00c000;
+
+                    svg {
+                        fill: #006000;
+                    }
+                }
+
+                &.negative {
+                    background-color: #c00000;
+
+                    svg {
+                        fill: #600000;
+                        transform: rotate(90deg);
+                    }
+                }
+
+                &.neutral {
+                    background-color: #808080;
+
+                    svg {
+                        fill: #404040;
+                    }
+                }
+
+                &.missing {
+                    background-color: #f69f00;
+
+                    svg {
+                        fill: #e9550b;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,4 @@
-﻿/*@import "reset";
-@import "fixed-table";*/
-* {
+﻿* {
   margin: 0;
   padding: 0; }
 
@@ -17,6 +15,12 @@ body {
 body {
   font-size: 18px;
   font-family: sans-serif; }
+  body > svg {
+    display: none; }
+
+svg {
+  display: block;
+  pointer-events: none; }
 
 table.dataTable {
   width: 100%;
@@ -1067,16 +1071,6 @@ corresponds to the arrow we want to display */
 .tooltipster-sidetip.tooltipster-right .tooltipster-arrow-uncropped {
   left: -10px; }
 
-body > svg {
-  display: none; }
-
-svg {
-  display: block;
-  pointer-events: none; }
-
-.tooltipster-base ul {
-  list-style-position: inside; }
-
 .dataTables_wrapper {
   height: 100%;
   display: flex;
@@ -1094,6 +1088,8 @@ svg {
     flex-grow: 1; }
   .dataTables_wrapper .dataTables_scrollHead {
     flex-shrink: 0; }
+  .dataTables_wrapper .dataTables_scroll {
+    min-height: 400px; }
 
 .datatable {
   opacity: 0;
@@ -1205,3 +1201,6 @@ svg {
         background-color: #f69f00; }
         .dataTables_wrapper .datatable tbody tr td.missing svg {
           fill: #e9550b; }
+
+.tooltipster-base ul {
+  list-style-position: inside; }

@@ -19,4 +19,13 @@ body {
 body {
     font-size: 18px;
     font-family: sans-serif;
+
+    > svg {
+        display: none;
+    }
+}
+
+svg {
+    display: block;
+    pointer-events: none;
 }

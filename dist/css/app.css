@@ -1072,8 +1072,9 @@ corresponds to the arrow we want to display */
   left: -10px; }
 
 .dataTables_wrapper {
+  max-width: 100%;
   height: 100%;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   overflow: auto; }
   .dataTables_wrapper .DTFC_ScrollWrapper {
@@ -1094,7 +1095,8 @@ corresponds to the arrow we want to display */
 .datatable {
   opacity: 0;
   position: fixed;
-  font-family: sans-serif; }
+  font-family: sans-serif;
+  margin: 0 !important; }
   .datatable thead tr {
     height: 200px; }
     .datatable thead tr th {

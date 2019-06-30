@@ -14,6 +14,7 @@
       "js/vendors/datatables/extensions/fixedColumns.js",
       "js/vendors/datatables/extensions/fixedHeader.js",
       "js/vendors/tooltipster.min.js",
+      "js/vendors/bowser.js",
       "js/app.js"
     ]
   }

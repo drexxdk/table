@@ -1,4 +1,13 @@
 ﻿$(function () {
+    let html = $('html');
+
+    if (bowser.mobile) {
+        html.addClass('mobile');
+    } else if (bowser.tablet) {
+        html.addClass('tablet');
+    } else {
+        html.addClass('desktop');
+    }
 
     let table_header = (instance, wrapper) => {
         let ths = wrapper.find('thead th');
@@ -11,7 +20,7 @@
             }
         }
     };
-    
+
     let table = $('#datatable'),
         exportOptions = {
             "format": {
@@ -62,13 +71,14 @@
                 });
             }
         });
+    if (html.hasClass('desktop')) {
+        table.on('mouseenter', 'tbody td', function () {
+            let colIdx = datatable.cell(this).index().column;
 
-    table.on('mouseenter', 'tbody td', function () {
-        let colIdx = datatable.cell(this).index().column;
-
-        $(datatable.cells().nodes()).removeClass('highlight');
-        $(datatable.column(colIdx).nodes()).addClass('highlight');
-    }).on('mouseleave', 'tbody td', function () {
-        $(datatable.cells().nodes()).removeClass('highlight');
-    });
+            $(datatable.cells().nodes()).removeClass('highlight');
+            $(datatable.column(colIdx).nodes()).addClass('highlight');
+        }).on('mouseleave', 'tbody td', function () {
+            $(datatable.cells().nodes()).removeClass('highlight');
+        });
+    }
 });

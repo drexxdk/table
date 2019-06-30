@@ -54,10 +54,7 @@
                 table_header(instance, wrapper);
 
                 table.find('.tooltip').tooltipster({
-                    //trigger: 'custom',
-                    //triggerOpen: {
-                    //    click: true
-                    //},
+                    trigger: 'click',
                     functionInit: function (instance, helper) {
                         var content = $(helper.origin).find('.tooltip-content').detach();
                         instance.content(content);

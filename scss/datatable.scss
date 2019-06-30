@@ -120,8 +120,8 @@ $datatable-min-rows: 5;
                 }
             }
 
-            &:hover td:not(.highlight),
-            &:not(:hover) td.highlight {
+            html.desktop &:hover td:not(.highlight),
+            html.desktop &:not(:hover) td.highlight {
                 position: relative;
 
                 &:before {

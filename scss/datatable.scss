@@ -58,44 +58,58 @@ $datatable-rotate: rotate(-45deg);
     }
 
     .DTFC_LeftHeadWrapper {
+        z-index: 5;
         overflow: unset !important;
 
         .datatable thead tr th {
 
-            html.desktop &:hover,
-            html.desktop &:hover span {
+            .desktop &:hover {
                 background-color: #eee;
-            }
-
-            > span {
-                height: 140px;
-                bottom: -164px;
-                left: -23px;
-                width: 460px;
             }
         }
     }
 
-    .dataTables_scrollHeadInner .datatable thead tr th > span {
-        font-size: $datatable-font-size;
-        line-height: 35px;
-        left: -17px;
-        bottom: -53px;
-        width: 350px;
-        padding: 0 45px 0 75px;
-        box-sizing: border-box;
-        text-align: left;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        z-index: 3;
-    }
+    .dataTables_scrollHeadInner .datatable thead tr th {
+        pointer-events: none;
 
-    .datatable thead tr th > span {
-        position: absolute;
-        transform: $datatable-rotate;
-        transform-origin: top left;
-        user-select: none;
+        > span {
+            position: absolute;
+            transform: $datatable-rotate;
+            transform-origin: top left;
+            user-select: none;
+            pointer-events: all;
+        }
+
+        &:nth-child(odd) > span {
+            background-color: white;
+
+            html.desktop &:hover {
+                background-color: #eee;
+            }
+        }
+
+        &:nth-child(even) > span {
+            background-color: #ddd;
+
+            html.desktop &:hover {
+                background-color: #ccc;
+            }
+        }
+
+        > span {
+            font-size: $datatable-font-size;
+            line-height: 35px;
+            left: -17px;
+            bottom: -53px;
+            width: 350px;
+            padding: 0 45px 0 75px;
+            box-sizing: border-box;
+            text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            z-index: 3;
+        }
     }
 }
 
@@ -127,6 +141,10 @@ $datatable-rotate: rotate(-45deg);
 
             .tooltip-content {
                 display: none;
+            }
+
+            &:last-of-type {
+                pointer-events: none;
             }
         }
     }
@@ -169,22 +187,6 @@ $datatable-rotate: rotate(-45deg);
 
             &.sorting_desc_disabled:before {
                 background-image: url("../dist/img/datatables/sort_desc_disabled.png")
-            }
-
-            &:nth-child(odd) > span {
-                background-color: white;
-
-                html.desktop &:hover {
-                    background-color: #eee;
-                }
-            }
-
-            &:nth-child(even) > span {
-                background-color: #ddd;
-
-                html.desktop &:hover {
-                    background-color: #ccc;
-                }
             }
         }
 

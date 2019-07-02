@@ -17,6 +17,7 @@ $datatable-rotate: rotate(-45deg);
     overflow: auto;
 
     .DTFC_ScrollWrapper {
+        margin-top: 20px;
         display: flex;
         flex-direction: column;
         overflow: auto;
@@ -59,11 +60,19 @@ $datatable-rotate: rotate(-45deg);
     .DTFC_LeftHeadWrapper {
         overflow: unset !important;
 
-        .datatable thead tr th > span {
-            height: 140px;
-            bottom: -164px;
-            left: -23px;
-            width: 460px;
+        .datatable thead tr th {
+
+            html.desktop &:hover,
+            html.desktop &:hover span {
+                background-color: #eee;
+            }
+
+            > span {
+                height: 140px;
+                bottom: -164px;
+                left: -23px;
+                width: 460px;
+            }
         }
     }
 
@@ -86,6 +95,7 @@ $datatable-rotate: rotate(-45deg);
         position: absolute;
         transform: $datatable-rotate;
         transform-origin: top left;
+        user-select: none;
     }
 }
 
@@ -164,7 +174,7 @@ $datatable-rotate: rotate(-45deg);
             &:nth-child(odd) > span {
                 background-color: white;
 
-                &:hover {
+                html.desktop &:hover {
                     background-color: #eee;
                 }
             }
@@ -172,7 +182,7 @@ $datatable-rotate: rotate(-45deg);
             &:nth-child(even) > span {
                 background-color: #ddd;
 
-                &:hover {
+                html.desktop &:hover {
                     background-color: #ccc;
                 }
             }

@@ -22,13 +22,61 @@
     };
 
     let table = $('#datatable'),
-        exportOptions = {
-            "format": {
-                header: (text, index, th) => {
-                    return $(th).find('span:first').html();
-                }
+        tbody = table.find('tbody'),
+        rows = 25,
+        data = [
+            {
+                name: 'positive tooltip',
+                html: `<span class="percentage">100%</span>
+                    <svg focusable="false"><use xlink:href="#svg-arrow-up-right"></use></svg>
+                    <ul class="tooltip-content">
+                        <li>3 lektioner om ugen</li>
+                        <li>3 ud af 3 benytter korrekt</li>
+                    </ul>`
+            },
+            {
+                name: 'negative tooltip',
+                html: `<span class="percentage">25%</span>
+                    <svg focusable="false"><use xlink:href="#svg-arrow-up-right"></use></svg>
+                    <ul class="tooltip-content">
+                        <li>1.5 lektioner om ugen</li>
+                        <li>1 ud af 4 benytter korrekt</li>
+                    </ul>`
+            },
+            {
+                name: 'neutral',
+                html: `<span class="percentage">88.7%</span>
+                    <svg focusable="false"><use xlink:href="#svg-minus"></use></svg>`
+            },
+            {
+                name: 'missing',
+                html: `<span class="percentage">0%</span>
+                    <svg focusable="false"><use xlink:href="#svg-close"></use></svg>`
             }
-        },
+        ];
+
+    for (let i = 0; i < rows; i++) {
+        let row = [];
+        row.push('<tr>');
+        row.push(`<th>${Math.random().toString(36).substring(7)}</th>`)
+        for (let j = 0; j < table.find('thead tr th').length - 2; j++) {
+            let element = data[Math.floor(Math.random() * ((data.length - 1) - 0 + 1)) + 0];
+            row.push(`<td class="${element.name}">${element.html}</td>`);
+        }
+        row.push('<td><span class="spacer"></span></td>');
+        row.push('</tr>');
+        row = row.join('');
+        tbody.append(row);
+    }
+
+
+    let exportOptions = {
+        "format": {
+            header: (text, index, th) => {
+                return $(th).find('span:first').html();
+            }
+        }
+    },
         datatable = table.DataTable({
             //scrollY: 500,
             scrollX: true,

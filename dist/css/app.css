@@ -1166,7 +1166,7 @@ corresponds to the arrow we want to display */
         overflow: hidden;
         text-overflow: ellipsis;
         width: 350px;
-        padding: 0 60px 0 75px;
+        padding: 0 45px 0 75px;
         box-sizing: border-box;
         z-index: 1; }
     .dataTables_wrapper .datatable tbody tr th {

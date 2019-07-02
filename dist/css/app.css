@@ -1102,6 +1102,8 @@ corresponds to the arrow we want to display */
     pointer-events: none; }
     .dataTables_wrapper .no-sort:before {
       display: none; }
+  .dataTables_wrapper .dataTables_scrollBody {
+    border-bottom: none !important; }
   .dataTables_wrapper table.dataTable thead th,
   .dataTables_wrapper table.dataTable thead td {
     border-bottom: unset; }

@@ -48,6 +48,10 @@ $datatable-rotate: rotate(-45deg);
         }
     }
 
+    .dataTables_scrollBody {
+        border-bottom: none!important;
+    }
+
     table.dataTable thead th,
     table.dataTable thead td {
         border-bottom: unset;

@@ -1223,7 +1223,7 @@ corresponds to the arrow we want to display */
       padding: 0; }
       .dataTables_wrapper .datatable tbody tr td:last-child > .spacer {
         display: block;
-        width: 170px; }
+        width: 157px; }
       .dataTables_wrapper .datatable tbody tr td > .percentage {
         width: 50px;
         display: block;

@@ -136,8 +136,9 @@ $datatable-rotate: rotate(-45deg);
                 right: 0;
                 width: 20px;
                 height: 20px;
-                z-index: 2;
+                z-index: 4;
                 transform: $datatable-rotate;
+                pointer-events: none;
             }
 
             &.sorting:before {

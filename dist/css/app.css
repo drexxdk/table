@@ -1163,8 +1163,9 @@ corresponds to the arrow we want to display */
         right: 0;
         width: 20px;
         height: 20px;
-        z-index: 2;
-        transform: rotate(-45deg); }
+        z-index: 4;
+        transform: rotate(-45deg);
+        pointer-events: none; }
       .dataTables_wrapper .datatable thead tr th.sorting:before {
         background-image: url("../img/datatables/sort_both.png"); }
       .dataTables_wrapper .datatable thead tr th.sorting_asc:before {

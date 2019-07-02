@@ -22,6 +22,12 @@ svg {
   display: block;
   pointer-events: none; }
 
+:focus {
+  outline: none !important; }
+
+::-moz-focus-inner {
+  border: 0; }
+
 table.dataTable {
   width: 100%;
   margin: 0 auto;
@@ -1091,6 +1097,15 @@ corresponds to the arrow we want to display */
     flex-shrink: 0; }
   .dataTables_wrapper .dataTables_scroll {
     min-height: 400px; }
+  .dataTables_wrapper .no-sort {
+    pointer-events: none; }
+    .dataTables_wrapper .no-sort:before {
+      display: none; }
+  .dataTables_wrapper table.dataTable thead th,
+  .dataTables_wrapper table.dataTable thead td {
+    border-bottom: unset; }
+  .dataTables_wrapper .DTFC_LeftBodyLiner table thead tr th:before {
+    display: none; }
 
 .datatable {
   opacity: 0;
@@ -1108,7 +1123,6 @@ corresponds to the arrow we want to display */
     text-overflow: ellipsis;
     font-size: 0; }
   .datatable tbody tr td {
-    width: 50px;
     overflow: hidden; }
     .datatable tbody tr td .tooltip-content {
       display: none; }
@@ -1117,25 +1131,46 @@ corresponds to the arrow we want to display */
     position: relative; }
     .dataTables_wrapper .datatable thead tr th {
       position: relative;
-      overflow: hidden; }
+      background-image: none; }
+      .dataTables_wrapper .datatable thead tr th:before {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        z-index: 2;
+        transform: rotate(-45deg); }
+      .dataTables_wrapper .datatable thead tr th.sorting:before {
+        background-image: url("../img/datatables/sort_both.png"); }
+      .dataTables_wrapper .datatable thead tr th.sorting_asc:before {
+        background-image: url("../img/datatables/sort_asc.png"); }
+      .dataTables_wrapper .datatable thead tr th.sorting_desc:before {
+        background-image: url("../img/datatables/sort_desc.png"); }
+      .dataTables_wrapper .datatable thead tr th.sorting_asc_disabled:before {
+        background-image: url("../img/datatables/sort_asc_disabled.png"); }
+      .dataTables_wrapper .datatable thead tr th.sorting_desc_disabled:before {
+        background-image: url("../img/datatables/sort_desc_disabled.png"); }
+      .dataTables_wrapper .datatable thead tr th:nth-child(even) > span {
+        background-color: #ddd; }
       .dataTables_wrapper .datatable thead tr th > span {
         font-size: 18px;
-        line-height: 50px;
+        line-height: 35px;
         position: absolute;
-        left: 0;
-        bottom: -50px;
-        transform: rotate(270deg);
+        left: -17px;
+        bottom: -53px;
+        transform: rotate(-45deg);
         transform-origin: top left;
         text-align: left;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        width: 200px;
-        padding: 0 10px;
-        box-sizing: border-box; }
+        width: 350px;
+        padding: 0 60px 0 75px;
+        box-sizing: border-box;
+        z-index: 1; }
     .dataTables_wrapper .datatable tbody tr th {
       font-size: 18px;
-      width: 200px;
       position: relative;
       text-align: right;
       line-height: 40px;
@@ -1166,6 +1201,9 @@ corresponds to the arrow we want to display */
     .dataTables_wrapper .datatable tbody tr td {
       position: relative;
       padding: 0; }
+      .dataTables_wrapper .datatable tbody tr td:last-child > .spacer {
+        display: block;
+        width: 170px; }
       .dataTables_wrapper .datatable tbody tr td > .percentage {
         width: 50px;
         display: block;

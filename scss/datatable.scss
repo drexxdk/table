@@ -6,6 +6,7 @@ $datatable-column-height: 40px;
 $datatable-padding: 10px;
 $datatable-font-size: 18px;
 $datatable-min-rows: 5;
+$datatable-last-column-width: 170px;
 
 .dataTables_wrapper {
     max-width: 100%;
@@ -36,6 +37,23 @@ $datatable-min-rows: 5;
         // doesn't account for horizontal scrollbar
         min-height: $datatable-headline-length + ($datatable-column-height * $datatable-min-rows);
     }
+
+    .no-sort {
+        pointer-events: none;
+
+        &:before {
+            display: none;
+        }
+    }
+
+    table.dataTable thead th,
+    table.dataTable thead td {
+        border-bottom: unset;
+    }
+
+    .DTFC_LeftBodyLiner table thead tr th:before {
+        display: none;
+    }
 }
 
 .datatable {
@@ -62,7 +80,6 @@ $datatable-min-rows: 5;
         }
 
         td {
-            width: $datatable-column-width;
             overflow: hidden;
 
             .tooltip-content {
@@ -77,30 +94,65 @@ $datatable-min-rows: 5;
 
         thead tr th {
             position: relative;
-            overflow: hidden;
+            background-image: none;
+
+            &:before {
+                content: '';
+                position: absolute;
+                bottom: 5px;
+                right: 0;
+                width: 20px;
+                height: 20px;
+                z-index: 2;
+                transform: rotate(-45deg);
+            }
+
+            &.sorting:before {
+                background-image: url("../dist/img/datatables/sort_both.png")
+            }
+
+            &.sorting_asc:before {
+                background-image: url("../dist/img/datatables/sort_asc.png")
+            }
+
+            &.sorting_desc:before {
+                background-image: url("../dist/img/datatables/sort_desc.png")
+            }
+
+            &.sorting_asc_disabled:before {
+                background-image: url("../dist/img/datatables/sort_asc_disabled.png")
+            }
+
+            &.sorting_desc_disabled:before {
+                background-image: url("../dist/img/datatables/sort_desc_disabled.png")
+            }
+
+            &:nth-child(even) > span {
+                background-color: #ddd;
+            }
 
             > span {
                 font-size: $datatable-font-size;
-                line-height: $datatable-column-width;
+                line-height: 35px;
                 position: absolute;
-                left: 0;
-                bottom: -$datatable-column-width;
-                transform: rotate(270deg);
+                left: -17px;
+                bottom: -53px;
+                transform: rotate(-45deg);
                 transform-origin: top left;
                 text-align: left;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                width: $datatable-headline-length;
-                padding: 0 $datatable-padding;
+                width: 350px;
+                padding: 0 60px 0 75px;
                 box-sizing: border-box;
+                z-index: 1;
             }
         }
 
         tbody tr {
             th {
                 font-size: $datatable-font-size;
-                width: $datatable-headline-length;
                 position: relative;
                 text-align: right;
                 line-height: $datatable-column-height;
@@ -138,6 +190,11 @@ $datatable-min-rows: 5;
             td {
                 position: relative;
                 padding: 0;
+
+                &:last-child > .spacer {
+                    display: block;
+                    width: $datatable-last-column-width;
+                }
 
                 > .percentage {
                     width: $datatable-column-width;

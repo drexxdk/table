@@ -29,3 +29,11 @@ svg {
     display: block;
     pointer-events: none;
 }
+
+:focus {
+    outline: none !important;
+}
+
+::-moz-focus-inner {
+    border: 0;
+}

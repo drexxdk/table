@@ -14,10 +14,7 @@
         for (let i = 0; i < ths.length; i++) {
             let column = $(ths[i]),
                 text = column.html();
-
-            if (text) {
                 column.empty().append(`<span>${text}</span>`);
-            }
         }
     };
 

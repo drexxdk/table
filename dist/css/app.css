@@ -1106,6 +1106,30 @@ corresponds to the arrow we want to display */
     border-bottom: unset; }
   .dataTables_wrapper .DTFC_LeftBodyLiner table thead tr th:before {
     display: none; }
+  .dataTables_wrapper .DTFC_LeftHeadWrapper {
+    overflow: unset !important; }
+    .dataTables_wrapper .DTFC_LeftHeadWrapper .datatable thead tr th > span {
+      height: 140px;
+      bottom: -164px;
+      left: -23px;
+      width: 460px; }
+  .dataTables_wrapper .dataTables_scrollHeadInner .datatable thead tr th > span {
+    font-size: 18px;
+    line-height: 35px;
+    left: -17px;
+    bottom: -53px;
+    width: 350px;
+    padding: 0 45px 0 75px;
+    box-sizing: border-box;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 3; }
+  .dataTables_wrapper .datatable thead tr th > span {
+    position: absolute;
+    transform: rotate(-45deg);
+    transform-origin: top left; }
 
 .datatable {
   opacity: 0;
@@ -1151,24 +1175,14 @@ corresponds to the arrow we want to display */
         background-image: url("../img/datatables/sort_asc_disabled.png"); }
       .dataTables_wrapper .datatable thead tr th.sorting_desc_disabled:before {
         background-image: url("../img/datatables/sort_desc_disabled.png"); }
+      .dataTables_wrapper .datatable thead tr th:nth-child(odd) > span {
+        background-color: white; }
+        .dataTables_wrapper .datatable thead tr th:nth-child(odd) > span:hover {
+          background-color: #eee; }
       .dataTables_wrapper .datatable thead tr th:nth-child(even) > span {
         background-color: #ddd; }
-      .dataTables_wrapper .datatable thead tr th > span {
-        font-size: 18px;
-        line-height: 35px;
-        position: absolute;
-        left: -17px;
-        bottom: -53px;
-        transform: rotate(-45deg);
-        transform-origin: top left;
-        text-align: left;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 350px;
-        padding: 0 45px 0 75px;
-        box-sizing: border-box;
-        z-index: 1; }
+        .dataTables_wrapper .datatable thead tr th:nth-child(even) > span:hover {
+          background-color: #ccc; }
     .dataTables_wrapper .datatable tbody tr th {
       font-size: 18px;
       position: relative;

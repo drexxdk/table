@@ -7,6 +7,7 @@ $datatable-padding: 10px;
 $datatable-font-size: 18px;
 $datatable-min-rows: 5;
 $datatable-last-column-width: 170px;
+$datatable-rotate: rotate(-45deg);
 
 .dataTables_wrapper {
     max-width: 100%;
@@ -53,6 +54,38 @@ $datatable-last-column-width: 170px;
 
     .DTFC_LeftBodyLiner table thead tr th:before {
         display: none;
+    }
+
+    .DTFC_LeftHeadWrapper {
+        overflow: unset !important;
+
+        .datatable thead tr th > span {
+            height: 140px;
+            bottom: -164px;
+            left: -23px;
+            width: 460px;
+        }
+    }
+
+    .dataTables_scrollHeadInner .datatable thead tr th > span {
+        font-size: $datatable-font-size;
+        line-height: 35px;
+        left: -17px;
+        bottom: -53px;
+        width: 350px;
+        padding: 0 45px 0 75px;
+        box-sizing: border-box;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        z-index: 3;
+    }
+
+    .datatable thead tr th > span {
+        position: absolute;
+        transform: $datatable-rotate;
+        transform-origin: top left;
     }
 }
 
@@ -104,7 +137,7 @@ $datatable-last-column-width: 170px;
                 width: 20px;
                 height: 20px;
                 z-index: 2;
-                transform: rotate(-45deg);
+                transform: $datatable-rotate;
             }
 
             &.sorting:before {
@@ -127,26 +160,20 @@ $datatable-last-column-width: 170px;
                 background-image: url("../dist/img/datatables/sort_desc_disabled.png")
             }
 
-            &:nth-child(even) > span {
-                background-color: #ddd;
+            &:nth-child(odd) > span {
+                background-color: white;
+
+                &:hover {
+                    background-color: #eee;
+                }
             }
 
-            > span {
-                font-size: $datatable-font-size;
-                line-height: 35px;
-                position: absolute;
-                left: -17px;
-                bottom: -53px;
-                transform: rotate(-45deg);
-                transform-origin: top left;
-                text-align: left;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                width: 350px;
-                padding: 0 45px 0 75px;
-                box-sizing: border-box;
-                z-index: 1;
+            &:nth-child(even) > span {
+                background-color: #ddd;
+
+                &:hover {
+                    background-color: #ccc;
+                }
             }
         }
 

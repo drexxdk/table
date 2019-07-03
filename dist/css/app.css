@@ -1104,6 +1104,10 @@ corresponds to the arrow we want to display */
       display: none; }
   .dataTables_wrapper .dataTables_scrollBody {
     border-bottom: none !important; }
+    .dataTables_wrapper .dataTables_scrollBody thead {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none; }
   .dataTables_wrapper table.dataTable thead th,
   .dataTables_wrapper table.dataTable thead td {
     border-bottom: unset; }
@@ -1143,6 +1147,8 @@ corresponds to the arrow we want to display */
       overflow: hidden;
       text-overflow: ellipsis;
       z-index: 3; }
+      html.msedge .dataTables_wrapper .dataTables_scrollHeadInner .datatable thead tr th > span {
+        bottom: -232px; }
 
 .datatable {
   opacity: 0;
@@ -1181,6 +1187,8 @@ corresponds to the arrow we want to display */
         z-index: 4;
         transform: rotate(-45deg);
         pointer-events: none; }
+        html.msedge .dataTables_wrapper .datatable thead tr th:before {
+          bottom: -175px; }
       .dataTables_wrapper .datatable thead tr th.sorting:before {
         background-image: url("../img/datatables/sort_both.png"); }
       .dataTables_wrapper .datatable thead tr th.sorting_asc:before {

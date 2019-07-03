@@ -49,7 +49,13 @@ $datatable-rotate: rotate(-45deg);
     }
 
     .dataTables_scrollBody {
-        border-bottom: none!important;
+        border-bottom: none !important;
+
+        thead {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
     }
 
     table.dataTable thead th,
@@ -105,6 +111,11 @@ $datatable-rotate: rotate(-45deg);
             line-height: 35px;
             left: -17px;
             bottom: -53px;
+
+            html.msedge & {
+                bottom: -232px; // edge is stupid
+            }
+
             width: 350px;
             padding: 0 45px 0 75px;
             box-sizing: border-box;
@@ -165,6 +176,11 @@ $datatable-rotate: rotate(-45deg);
                 content: '';
                 position: absolute;
                 bottom: 5px;
+
+                html.msedge & {
+                    bottom: -175px; // edge is stupid
+                }
+
                 right: 0;
                 width: 20px;
                 height: 20px;

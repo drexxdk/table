@@ -9,6 +9,10 @@
         html.addClass('desktop');
     }
 
+    if (bowser.msedge) {
+        html.addClass('msedge');
+    }
+
     let table_header = (instance, wrapper) => {
         let ths = wrapper.find('thead th');
         for (let i = 0; i < ths.length; i++) {
@@ -20,7 +24,7 @@
 
     let table = $('#datatable'),
         tbody = table.find('tbody'),
-        rows = 25,
+        rows = 10,
         data = [
             {
                 name: 'positive tooltip',
